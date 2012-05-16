@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+    <table name="test_m_seo_custo_model">
+        <column>id</column>
+        <column>title</column>
+        <column>content</column>
+        <row>
+            <value>1</value>
+            <value>custo 1</value>
+            <value>contenu de la custo 1</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>custo 2</value>
+            <value>contenu de la custo 2</value>
+        </row>
+        <row>
+            <value>3</value>
+            <value>custo 3</value>
+            <value>contenu de la custo 3</value>
+        </row>
+        <row>
+            <value>4</value>
+            <value>custo 4</value>
+            <value>contenu de la custo 4</value>
+        </row>
+    </table>
+    <table name="test_m_seo_first_model">
+        <column>id</column>
+        <column>title</column>
+        <column>body</column>
+        <column>chapo</column>
+        <row>
+            <value>1</value>
+            <value>first 1</value>
+            <value>contenu de first 1</value>
+            <value>découvrez la super contrib first 1</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>first 2</value>
+            <value>contenu de first 2</value>
+            <value>ma contri first 2</value>
+        </row>
+        <row>
+            <value>3</value>
+            <value>first 3</value>
+            <value>NULL</value>
+            <value>NULL</value>
+        </row>
+        <row>
+            <value>4</value>
+            <value>first 4</value>
+            <value>NULL</value>
+            <value>chapo first 4</value>
+        </row>
+        <row>
+            <value>5</value>
+            <value>first 5</value>
+            <value>contenu first 5</value>
+            <value>NULL</value>
+        </row>
+    </table>
+    <table name="test_m_seo_second_model">
+        <column>id</column>
+        <column>title</column>
+        <column>content</column>
+        <row>
+            <value>1</value>
+            <value>second 1</value>
+            <value>contenu 2</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>second 2</value>
+            <value>contenu 2</value>
+        </row>
+    </table>
+    <table name="seo_meta">
+        <column>id</column>
+        <column>model_id</column>
+        <column>record_id</column>
+        <column>type</column>
+        <column>content</column>
+        <row>
+            <value>1</value>
+            <value>81</value>
+            <value>897aaa8c9989daf6f520cbb6ea5260730c0aa725</value>
+            <value>description</value>
+            <value>meta description first 1</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>81</value>
+            <value>897aaa8c9989daf6f520cbb6ea5260730c0aa725</value>
+            <value>keywords</value>
+            <value>meta keywords first 1</value>
+        </row>
+    </table>
+    <table name="translation_language">
+        <column>id</column>
+        <column>locale</column>
+        <column>name</column>
+        <column>flag</column>
+        <row>
+            <value>1</value>
+            <value>fr</value>
+            <value>Français</value>
+            <value>layouts/backoffice/images/flags/fr.png</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>en</value>
+            <value>English</value>
+            <value>layouts/backoffice/images/flags/uk.png</value>
+        </row>
+    </table>
+    <table name="test_m_seo_translatable_model">
+        <column>id</column>
+        <column>language_id</column>
+        <column>title</column>
+        <column>content</column>
+        <column>is_active</column>
+        <row>
+            <value>1</value>
+            <value>1</value>
+            <value>translatable 1</value>
+            <value>contenu translatable 1</value>
+            <value>0</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>1</value>
+            <value>translatable 2</value>
+            <value>contenu translatable 2</value>
+            <value>0</value>
+        </row>
+    </table>
+    <table name="test_m_seo_translatable_model">
+        <column>id</column>
+        <column>original_id</column>
+        <column>language_id</column>
+        <column>title</column>
+        <column>content</column>
+        <column>is_active</column>
+        <row>
+            <value>3</value>
+            <value>1</value>
+            <value>2</value>
+            <value>translatable 1 en</value>
+            <value>contenu translatable 1 en</value>
+            <value>0</value>
+        </row>
+    </table>
+</dataset>
