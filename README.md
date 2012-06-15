@@ -75,13 +75,13 @@ All your rows class get by previous models must implement the trait `Seo_Traits_
 
 ###On your Form classes (Optional) :
 If you want generate automatically fields in your form to manage Meta fields for your objects,
-you can add the trait `Seo_Traits_Form_Model`. This trait is only available for `Centurion_Form_Model_Abstract` forms.
+you can add the trait `Seo_Traits_Form_Model_Interface`. This trait is only available for `Centurion_Form_Model_Abstract` forms.
 
 This trait generates automatically textarea fields to manage Meta of yours business objects and save value in yours
 objects.
 
 ####On your CRUD classes (Optional) :
-If you use the previous trait on your forms, you can also add the trait on your CRUD : `Seo_Traits_Controller_CRUD`
+If you use the previous trait on your forms, you can also add the trait on your CRUD : `Seo_Traits_Controller_CRUD_Interface`
 to place Meta's fields in a special Grid group, before buttons in the form (If you are using the Grid of the module Admin).
 
 Use the trait SEO in a Multi-website context :

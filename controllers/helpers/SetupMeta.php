@@ -40,7 +40,7 @@ class Seo_Controller_Action_Helper_SetupMeta
         $this->_metaRowset = array();
 
         $view = $this->getActionController()->view;
-        foreach($metaRowset as $metaRow){
+        foreach ($metaRowset as $metaRow){
             $view->headMeta($metaRow->content, $metaRow->type);
         }
 
@@ -55,8 +55,8 @@ class Seo_Controller_Action_Helper_SetupMeta
      * @param mixed $object
      */
     public function setupMetaForRows($signal, $sender, $object){
-        if($object instanceof Seo_Traits_Model_DbTable_Row_Interface){
-            foreach($object->getMetaRowset() as $metaRow){
+        if ($object instanceof Seo_Traits_Model_DbTable_Row_Interface){
+            foreach ($object->getMetaRowset() as $metaRow){
                 $this->_metaRowset[] = $metaRow;
             }
         }

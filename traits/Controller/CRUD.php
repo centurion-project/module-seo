@@ -15,7 +15,7 @@ class Seo_Traits_Controller_CRUD
         parent::init();
 
         //To add only this new group at end
-        Centurion_Signal::factory('grid_pre_add_button')->connect(
+        Centurion_Signal::factory('on_form_rendering')->connect(
             array($this, 'addMainGroupForMeta'),
             $this->_getForm()
         );
@@ -29,7 +29,7 @@ class Seo_Traits_Controller_CRUD
     public function addMainGroupForMeta($signal, $sender){
         $form = $this->_getForm();
         if( $form instanceof Seo_Traits_Form_Model_Interface
-            && null != $form->getDisplayGroup(Seo_Traits_Form_Model::FORM_META_DISPLAYGROUP_NAME)){
+        && null != $form->getDisplayGroup(Seo_Traits_Form_Model::FORM_META_DISPLAYGROUP_NAME)){
 
             //Create it
             $this->_controller->view->gridForm()->addMain($this->_getForm(), array(

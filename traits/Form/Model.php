@@ -32,8 +32,7 @@ class Seo_Traits_Form_Model
      */
     public function init(){
         Centurion_Signal::factory('post_generate')->connect(
-            array( $this, 'postGenerate' ),
-            $this->_form
+            array( $this, 'postGenerate' )
         );
 
         Centurion_Signal::factory('on_populate_with_instance')->connect(
@@ -63,20 +62,20 @@ class Seo_Traits_Form_Model
      * @param Centurion_Form_Model_Abstract $sender
      */
     public function postGenerate($signal, $sender){
-        if(!($this->_form->getModel() instanceof Seo_Traits_Model_DbTable_Interface)){
+        if (!($this->_form->getModel() instanceof Seo_Traits_Model_DbTable_Interface)){
             return;
         }
-
+        
         $fieldsList = array();
         foreach($this->_form->getModel()->getDefinedMeta() as $type){
-            if(null != $this->_form->getElement(self::FORM_META_FIELDS_PREFIX.$type)){
+            if (null != $this->_form->getElement(self::FORM_META_FIELDS_PREFIX . $type)){
                 continue;
             }
 
             //Add a element for each meta type
             $this->_form->addElement(
                     'textarea',
-                    self::FORM_META_FIELDS_PREFIX.$type,
+                    self::FORM_META_FIELDS_PREFIX . $type,
                     array(
                         'label' => $this->_translate($type)
                     )
@@ -85,7 +84,7 @@ class Seo_Traits_Form_Model
             $fieldsList[] = self::FORM_META_FIELDS_PREFIX.$type;
         }
 
-        if(count($fieldsList) > 0){
+        if (count($fieldsList) > 0){
             //Regroup all meta elements into a same display group
             $this->_form->addDisplayGroup($fieldsList, self::FORM_META_DISPLAYGROUP_NAME);
         }
@@ -122,7 +121,7 @@ class Seo_Traits_Form_Model
      * @param array $values
      */
     public function prePopulate($signal, $sender, $values){
-        if(!($this->_form->getModel() instanceof Seo_Traits_Model_DbTable_Interface)){
+        if (!($this->_form->getModel() instanceof Seo_Traits_Model_DbTable_Interface)){
             return;
         }
 
@@ -141,12 +140,12 @@ class Seo_Traits_Form_Model
      * @param Centurion_Form_Model_Abstract $sender
      */
     public function postSave($signal, $sender){
-        if(!($this->_form->getModel() instanceof Seo_Traits_Model_DbTable_Interface)){
+        if (!($this->_form->getModel() instanceof Seo_Traits_Model_DbTable_Interface)){
             return;
         }
 
         $formInstance = $this->_form->getInstance();
-        if($formInstance instanceof Seo_Traits_Model_DbTable_Row_Interface){
+        if ($formInstance instanceof Seo_Traits_Model_DbTable_Row_Interface){
             $formInstance->saveMetas($this->_metaList);
         }
     }

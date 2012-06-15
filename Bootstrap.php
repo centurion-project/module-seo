@@ -14,7 +14,7 @@ class Seo_Bootstrap
     protected function _initHelper(){
         $this->bootstrap('FrontController');
 
-        //To allow trait to add meta into the view when there are sended by a SEOable Row
+        //To allow trait to add meta into the view when there are sended by a SEOtable Row
         Zend_Controller_Action_HelperBroker::addHelper(new Seo_Controller_Action_Helper_SetupMeta());
     }
 

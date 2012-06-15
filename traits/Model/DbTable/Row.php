@@ -13,6 +13,7 @@ class Seo_Traits_Model_DbTable_Row
     /**
      * Build the list of params used in request to filter result, or to create or update a row
      * @return array
+     * @TODO avoid to calculate all this each time
      */
     protected function _buildParamsFilters(){
         //Get the website adapter if the developer has defined one for this project
@@ -64,33 +65,32 @@ class Seo_Traits_Model_DbTable_Row
     protected function _saveMetaRow(array &$metaSpec, array $params, $type, $content = null){
         $m_seoContent = Centurion_Db::getSingleton('seo/meta');
 
-        if(!empty($metaSpec[$type])
+        if (!empty($metaSpec[$type])
             && empty($content)){
             //Generate automatically the content of the meta row if it is empty
 
             $content = array();
-            foreach($metaSpec[$type] as $key=>$value){
+            foreach ($metaSpec[$type] as $key => $value){
                 $fieldName  = null; //Field of the row to use
                 $modifier   = null; //Method to call to alter the field value to generate the meta
 
-                if(!is_numeric($key)
+                if (!is_numeric($key)
                     && is_callable($value)){
                     //Developper want alter the value before to use it into the meta
                     $fieldName = $key;
                     $modifier = $value;
-                }
-                else{
+                } else {
                     //no modifier, use the value directly
                     $fieldName = $value;
                 }
 
-                if(!empty($this->_row->{$fieldName})){
+                $value = $this->_row->{$fieldName};
+                if (!empty($value)){
                     //If the value exist, add it into content
-                    if(null == $modifier){
-                        $content[] = $this->_row->{$fieldName};
-                    }
-                    else{
-                        $content[] = call_user_func_array($modifier, array($this->_row->{$fieldName}));
+                    if (null === $modifier){
+                        $content[] = $value;
+                    } else {
+                        $content[] = call_user_func_array($modifier, array($value));
                     }
                 }
             }
